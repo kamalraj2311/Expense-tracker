@@ -1,0 +1,387 @@
+:root{
+  --bg:#0b1220;
+  --card:#1e293b;
+  --text:#f8fafc;
+  --muted:#94a3b8;
+  --accent:#2563eb;
+  --input-bg:#ffffff;
+}
+
+body.light{
+  --bg:#eef2f6;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+}
+
+*{
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  transition:background .4s,color .4s;
+}
+
+header{
+  background:linear-gradient(90deg,#2563eb,#1e40af);
+  color:#fff;
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.main{
+  padding:25px;
+  max-width:1400px;
+  margin:auto;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.card {
+  padding:20px;
+  border-radius:14px;
+  color:#fff;
+  background-size:200% 200%;
+  animation:gradientMove 6s ease infinite;
+}
+@keyframes gradientMove {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+.balance{background:linear-gradient(135deg,#16a34a,#15803d)}
+.income{background:linear-gradient(135deg,#0284c7,#0369a1)}
+.expense{background:linear-gradient(135deg,#dc2626,#991b1b)}
+
+/* ----------------------------
+   CLEAN MODERN SECTION (UPDATED)
+-----------------------------*/
+.section {
+  background: var(--card);
+  padding: 28px;
+  border-radius: 16px;
+  margin-top: 28px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.section h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.section .sub {
+  margin: 6px 0 18px 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* ----------------------------
+   UPDATED CLEAN FORM FIELDS
+-----------------------------*/
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+.field {
+  position: relative;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  padding-left: 42px;
+  padding-right: 12px;
+  font-size: 15px;
+  background: var(--input-bg);
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  transition: border 0.25s ease;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--accent);
+}
+
+.field i {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  font-size: 15px;
+  color: #64748b;
+  transform: translateY(-50%);
+}
+
+.field label {
+  position: absolute;
+  top: -6px;
+  left: 14px;
+  padding: 0 4px;
+  font-size: 12px;
+  background: var(--card);
+  color: var(--accent);
+}
+
+/* Add Button */
+.add-btn {
+  height: 50px;
+  border-radius: 12px;
+  background: var(--accent);
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+.add-btn:hover {opacity: 0.85}
+
+/* ----------------------------
+        UPDATED FILTERS
+-----------------------------*/
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.controls input,
+.controls select {
+  height: 46px;
+  border-radius: 10px;
+  padding: 0 12px;
+  font-size: 15px;
+  border: 1px solid #cbd5e1;
+  background: var(--input-bg);
+}
+
+.controls button {
+  height: 46px;
+  border-radius: 10px;
+  font-size: 15px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+.controls button:hover {opacity: 0.85;}
+
+.controls button:last-child {
+  background: #16a34a;
+}
+
+/* ----------------------------
+      TABLE + CHARTS (ORIGINAL)
+-----------------------------*/
+table{width:100%;border-collapse:collapse}
+th,td{
+  padding:12px;
+  text-align:center;
+}
+tbody tr:hover{background:rgba(255,255,255,.05)}
+
+.plus{color:#22c55e;font-weight:600}
+.minus{color:#ef4444;font-weight:600}
+
+.btn{padding:8px 10px;border-radius:6px;border:none;color:#fff}
+.edit{background:#0ea5e9}
+.delete{background:#dc2626}
+
+.pagination{
+   display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:15px;
+}
+
+.charts{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.charts h3 {
+  margin-bottom: 60px;
+}
+
+/* --------------------------------------------------------
+      FULL RESPONSIVE FIX FOR ALL SECTIONS — FINAL VERSION
+----------------------------------------------------------- */
+
+/* ----------------------------
+   UNIVERSAL LAYOUT FIXES
+---------------------------- */
+
+/* Soft limit to keep layout centered nicely */
+.main {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  max-width: 1100px;
+  margin: auto;
+  border-radius: 12px;
+}
+
+/* Keep charts responsive */
+.charts canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 320px;
+  margin: auto;
+  display: block;
+}
+
+/* Table scrolls on mobile only */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  min-width: 650px;
+  width: 100%;
+}
+
+
+/* ----------------------------
+      MOBILE (0–480px)
+-------------------------------*/
+
+@media (max-width: 480px) {
+
+  .main, header {
+    max-width: 360px;
+    padding: 12px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr !important;
+    gap: 15px;
+  }
+
+  .section {
+    padding: 20px;
+    margin-top: 20px;
+    max-width: 360px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .charts {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .charts canvas {
+    max-width: 280px;
+  }
+
+  table {
+    min-width: 600px;
+  }
+}
+
+
+/*----------------------------
+    SMALL TABLET (481–768px)
+------------------------------*/
+
+@media (max-width: 768px) {
+
+  .main, header {
+    max-width: 600px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .charts {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/*------------------------------
+   TABLET / LAPTOP (769–1024px)
+--------------------------------*/
+
+@media (max-width: 1024px) {
+
+  .main, header {
+    max-width: 750px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .charts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/*----------------------------
+   DESKTOP (1025–1499px)
+------------------------------*/
+
+@media (min-width: 1025px) and (max-width: 1499px) {
+
+  .main, header {
+    max-width: 1000px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/*----------------------------
+   LARGE DESKTOP (1500px+)
+------------------------------*/
+
+@media (min-width: 1500px) {
+
+  .main, header {
+    max-width: 1200px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .charts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}  
